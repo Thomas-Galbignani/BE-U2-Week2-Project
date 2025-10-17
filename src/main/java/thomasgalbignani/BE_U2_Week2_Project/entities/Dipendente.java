@@ -4,6 +4,8 @@ package thomasgalbignani.BE_U2_Week2_Project.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.UUID;
+
 @Entity
 @Table(name = "dipendenti")
 @Getter
@@ -14,9 +16,9 @@ import lombok.*;
 public class Dipendente {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     @Setter(AccessLevel.NONE)
-    private Long id;
+    private UUID id;
 
     @Column(nullable = false, unique = true, length = 50)
     private String username;
@@ -30,7 +32,7 @@ public class Dipendente {
     @Column(nullable = false, unique = true, length = 150)
     private String email;
 
-    @Column(name = "avatar_url")
-    private String avatarURL;
+    @Column(name = "avatar")
+    private String avatar;
 
 }

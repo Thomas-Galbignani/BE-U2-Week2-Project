@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Entity
 @Table(name = "prenotazioni")
@@ -15,8 +16,8 @@ import java.time.LocalDate;
 public class Prenotazione {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue
+    private UUID id;
 
     @ManyToOne
     @JoinColumn(name = "dipendente_id", nullable = false)
@@ -32,10 +33,7 @@ public class Prenotazione {
     @Column(columnDefinition = "TEXT")
     private String note;
 
-    @Column(name = "preferenza_volo", length = 100)
-    private String preferenzaVolo;
-
-    @Column(name = "preferenza_alloggio", length = 100)
-    private String preferenzaAlloggio;
+    @Column(name = "preferenza_volo_or_alloggio", length = 100)
+    private String preferenzaVoloOAlloggio;
 
 }

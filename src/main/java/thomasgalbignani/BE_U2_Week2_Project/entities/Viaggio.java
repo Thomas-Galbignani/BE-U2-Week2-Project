@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Entity
 @Table(name = "viaggi")
@@ -15,9 +16,9 @@ import java.time.LocalDate;
 public class Viaggio {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     @Setter(AccessLevel.NONE)
-    private Long id;
+    private UUID id;
 
     @Column(nullable = false)
     private String destinazione;
